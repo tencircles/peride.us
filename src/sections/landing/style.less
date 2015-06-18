@@ -1,0 +1,116 @@
+div.landing {
+    .starbound-logo {
+        .flex(1 0 auto);
+        .flex-display(flex);
+        .flex-direction(column);
+        .justify-content(flex-end);
+
+        background-image : url("@{images}landing_bg.png");
+        background-repeat: no-repeat;
+        background-size  : cover;
+        background-position: center 20%;
+
+        h1 {
+            display: none;
+            .neou-thin;
+            font-size        : 5.0rem;
+            line-height      : 5.0rem;
+        }
+        @media @landscape {
+            background-image: none;
+            /*h1 {
+                display: block;
+            }*/
+        }
+    }
+    p {
+        .no-bounding-box;
+    }
+    .x {
+        .flex(0 1 80px);
+        background-image    : url("@{images}x.png");
+        background-position : center center;
+        background-repeat   : no-repeat;
+        background-size     : contain;
+        width               : 20%;
+        max-width           : 90px;
+        min-width           : 50px;
+        margin              : 0 auto 2.0rem auto;
+        button {
+            display: none;
+        }
+    }
+    .subheader {
+        .neou-thin;
+        .flex(0.5 0 auto);
+        font-size   : 3.0rem;
+        line-height : 3.6rem;
+        margin      : 0 2.0rem;
+        @media @smallAsFuck {
+            .flex(0 1 auto);
+        }
+    }
+    .produced-by {
+        .helvetica;
+        .flex(0 1 auto);
+        color          : @lighter;
+        text-transform : uppercase;
+        font-size      : 1.5rem;
+        margin         : 2.0rem auto;
+    }
+    .bg-on-section {
+        background-image    : url("@{images}landing_bg.png");
+        background-position : center center;
+        bcackgroun-repeat   : no-repeat;
+        background-size     : cover;
+    }
+    @media @desktop {
+        .justify-content(flex-end);
+
+        .bg-on-section;
+
+        .starbound-logo, .produced-by {
+            display: none;
+        }
+        .subheader {
+            .flex(0 1 auto);
+        }
+        .x {
+            .flex(0 1 23.25056433408578%);
+            .flex-order(4);
+
+            .flex-display(flex);
+            .flex-flow(row nowrap);
+            .justify-content(center);
+
+            background-image : none;
+            width            : 100%;
+            max-width        : 100%;
+            margin           : 15px 0 0 0;
+
+            button {
+                .flex(0 1 130px);
+                .neou-thin;
+                margin: 0 1.0rem;
+                display     : inline-block;
+                font-weight : bold;
+                font-size   : 2.5rem;
+            }
+            button:nth-child(-n+2) {
+                /*text-align: right;*/
+            }
+            button:nth-last-child(-n+2) {
+                /*text-align: left;*/
+            }
+            .x-icon {
+                .flex(0 1 80px);
+
+                margin              : 0;
+                background-image    : url("@{images}x.png");
+                background-position : center center;
+                background-repeat   : no-repeat;
+                background-size     : auto 30%;
+            }
+        }
+    }
+}
