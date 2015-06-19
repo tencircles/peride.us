@@ -1,16 +1,32 @@
+/*
+    font-family: 'Lato', sans-serif;
+    font-weight: 100, 100i, 300, 300i, 400, 400i, 700, 900, 900i
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 400;
+
+    font-family: 'Architects Daughter', cursive;
+*/
+@font-face {
+  font-family: scratched;
+  src: url("@{fonts}PWScratchedfont.otf") format("opentype");
+}
+@font-face {
+  font-family: flux;
+  src: url("@{fonts}Flux_Architect_Regular.otf") format("opentype");
+}
 html {
-  -webkit-font-smoothing: antialiased;
-  font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+    font-size: 62.5%;
 }
 body {
-  font-size: 1.5rem;
-  line-height: 1.8rem;
-  color: black;
+    font-weight : 400;
+    font-size   : 1.5rem;
+    line-height : 1.8rem;
+    color       : @dark;
+    .architect;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
+    font-weight: bold;
 }
 h1 { font-size: 4.0rem; }
 h2 { font-size: 3.6rem; }
@@ -27,7 +43,16 @@ a:link,
 a:visited,
 a:hover,
 a:active, {
-  .helvetica;
-  font-size: 1.5rem;
+    color: @blueprint;
+    font-size: 1.5rem;
+}
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+.cursive {
+    font-family: 'Shadows Into Light', cursive;
+}
+.architect {
+    font-family: 'Architects Daughter', cursive;
 }
 

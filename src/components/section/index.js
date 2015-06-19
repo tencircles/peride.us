@@ -34,7 +34,9 @@ section.destroy = destroy;
 function destroy (req, done) {
     console.log("destroy", this.name);
     this.unlisten && this.unlisten();
-    this.$el.remove();
+    if (this.$el) {
+        this.$el.remove();
+    }
     done();
 }
 
@@ -51,8 +53,10 @@ function appendToDom (selector) {
 }
 section.listen = listen;
 function listen () {
-    _.each(attach, this.events, this);
-    this.unlisten = _.each.curry(unattach, this.events, this);
+    if (this.events) {
+        _.each(attach, this.events, this);
+        this.unlisten = _.each.curry(unattach, this.events, this);
+    }
     function attach (fn, name) {
         this.events[name] = fn.bind(this);
         userEvents.on(name, this.events[name]);

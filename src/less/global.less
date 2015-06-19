@@ -1,6 +1,13 @@
+* {
+    -webkit-transition: all 2s @easeOutCubic;
+    transition: all 2s @easeOutCubic;
+}
 html, body {
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
     background: black;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    .transform(rotateZ(0deg));
 }
 html, body, .section {
     .no-bounding-box;
@@ -10,6 +17,7 @@ html, body, .section {
     -ms-user-select     : none;
     -moz-user-select    : none;
     -webkit-user-select : none;
+    background-color    : white;
 }
 button, input, textarea {
     .no-bounding-box;
@@ -17,4 +25,10 @@ button, input, textarea {
     background-color : transparent;
     outline          : none;
     text-align       : center;
+}
+h1, h2, h3, h4, h5, h6,
+div, p, a, button, input, textarea,
+nav {
+    border-radius: 2px;
+    border: 1px solid @lightest;
 }

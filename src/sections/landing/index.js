@@ -5,37 +5,43 @@ var section = require("../../components/section"),
     _ = require("../../libs/util");
 
 
-
+window.$ = $;
 module.exports = section({
     name: "landing",
-    resize: function resize (w, h) {
-        // original image dimentions 1440 × 938
-        if (/*w < 800*/true) {
-            return;
-        }
-        requestAnimationFrame(function () {
-            var scalar = h / 938;
-            var bgH = h;
-            var bgW = 1440 * scalar;
-            var top = 0;
-            var left = -((bgW - w) / 2);
-            if (bgW < w) {
-                scalar = w / 1440;
-                bgW = w;
-                bgH = h * scalar;
-                top = -((bgH - h) / 2);
-                left = 0;
-            }
-            $(".landing").css({
-                "backgroundSize": bgW + "px " + bgH + "px",
-                "backgroundPosition": left + "px " + top + "px"
-            });
-        });
-    },
     animateIn: function animateIn (req, done) {
         this.compile();
         this.appendToDom();
-        $("body").scrollTop(1);
+        setTimeout(function () {
+            fall(".item", done);
+        }, 1000)
+        fall(".content");
         done();
     }
 });
+function rise (selector, callback) {
+    $(selector).addClass("shadow-inset");
+    setTimeout(function () {
+        $(selector).removeClass("shadow-inset");
+    }, 1000);
+    setTimeout(function () {
+        $(selector).addClass("shadow-outline-0");
+        $(selector).offset().top;
+        $(selector).removeClass("shadow-outline-0");
+        $(selector).addClass("shadow-outline");
+        callback && callback();
+    }, 2000);
+}
+function fall (selector, callback) {
+    $(selector).addClass("shadow-outline");
+    setTimeout(function () {
+        $(selector).removeClass("shadow-outline");
+    }, 1000);
+    setTimeout(function () {
+        $(selector).addClass("shadow-inset-0");
+        $(selector).offset().top;
+        $(selector).removeClass("shadow-inset-0");
+        $(selector).addClass("shadow-inset");
+        callback && callback();
+    }, 2000);
+}
+
